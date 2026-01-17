@@ -93,38 +93,47 @@ if (termsCheckbox && modalConfirm) {
 });
 
 const partnersCarousel = document.querySelector("[data-carousel]");
-let carouselTimer;
+const partnersTrack = partnersCarousel?.querySelector(".partners-track");
+let isCarouselPaused = false;
 
-const startCarouselAutoplay = () => {
-  if (!partnersCarousel) {
+const startCarouselLoop = () => {
+  if (!partnersTrack) {
     return;
   }
-  const card = partnersCarousel.querySelector(".partner-card");
-  const cardWidth = card ? card.offsetWidth : 240;
-  const gap = 22;
-  const step = cardWidth + gap;
 
-  carouselTimer = window.setInterval(() => {
-    const maxScroll =
-      partnersCarousel.scrollWidth - partnersCarousel.clientWidth;
-    const nextScroll = partnersCarousel.scrollLeft + step;
+  let offset = 0;
+  let lastTimestamp = 0;
+  const speed = 90;
 
-    if (nextScroll >= maxScroll - 5) {
-      partnersCarousel.scrollTo({ left: 0, behavior: "smooth" });
-    } else {
-      partnersCarousel.scrollBy({ left: step, behavior: "smooth" });
+  const step = (timestamp) => {
+    if (!lastTimestamp) {
+      lastTimestamp = timestamp;
     }
-  }, 2800);
+    const delta = timestamp - lastTimestamp;
+    lastTimestamp = timestamp;
+
+    if (!isCarouselPaused) {
+      const halfWidth = partnersTrack.scrollWidth / 2;
+      offset += (speed * delta) / 1000;
+      if (offset >= halfWidth) {
+        offset = 0;
+      }
+      partnersTrack.style.transform = `translateX(-${offset}px)`;
+    }
+
+    window.requestAnimationFrame(step);
+  };
+
+  window.requestAnimationFrame(step);
 };
 
-const stopCarouselAutoplay = () => {
-  if (carouselTimer) {
-    window.clearInterval(carouselTimer);
-  }
-};
-
-if (partnersCarousel) {
-  startCarouselAutoplay();
-  partnersCarousel.addEventListener("mouseenter", stopCarouselAutoplay);
-  partnersCarousel.addEventListener("mouseleave", startCarouselAutoplay);
+if (partnersCarousel && partnersTrack) {
+  partnersCarousel.addEventListener("mouseenter", () => {
+    isCarouselPaused = true;
+  });
+  partnersCarousel.addEventListener("mouseleave", () => {
+    isCarouselPaused = false;
+  });
+  startCarouselLoop();
 }
+
