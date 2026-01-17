@@ -541,11 +541,6 @@ h3 {
   flex-wrap: wrap;
 }
 
-.carousel-controls {
-  display: flex;
-  gap: 10px;
-}
-
 .partners-carousel {
   margin-top: 28px;
   display: grid;

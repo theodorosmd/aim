@@ -93,26 +93,38 @@ if (termsCheckbox && modalConfirm) {
 });
 
 const partnersCarousel = document.querySelector("[data-carousel]");
-const prevButton = document.querySelector("[data-carousel-prev]");
-const nextButton = document.querySelector("[data-carousel-next]");
+let carouselTimer;
 
-const scrollCarousel = (direction) => {
+const startCarouselAutoplay = () => {
   if (!partnersCarousel) {
     return;
   }
   const card = partnersCarousel.querySelector(".partner-card");
   const cardWidth = card ? card.offsetWidth : 240;
   const gap = 22;
-  partnersCarousel.scrollBy({
-    left: direction * (cardWidth + gap),
-    behavior: "smooth",
-  });
+  const step = cardWidth + gap;
+
+  carouselTimer = window.setInterval(() => {
+    const maxScroll =
+      partnersCarousel.scrollWidth - partnersCarousel.clientWidth;
+    const nextScroll = partnersCarousel.scrollLeft + step;
+
+    if (nextScroll >= maxScroll - 5) {
+      partnersCarousel.scrollTo({ left: 0, behavior: "smooth" });
+    } else {
+      partnersCarousel.scrollBy({ left: step, behavior: "smooth" });
+    }
+  }, 2800);
 };
 
-if (prevButton) {
-  prevButton.addEventListener("click", () => scrollCarousel(-1));
-}
+const stopCarouselAutoplay = () => {
+  if (carouselTimer) {
+    window.clearInterval(carouselTimer);
+  }
+};
 
-if (nextButton) {
-  nextButton.addEventListener("click", () => scrollCarousel(1));
+if (partnersCarousel) {
+  startCarouselAutoplay();
+  partnersCarousel.addEventListener("mouseenter", stopCarouselAutoplay);
+  partnersCarousel.addEventListener("mouseleave", startCarouselAutoplay);
 }
