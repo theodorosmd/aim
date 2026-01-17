@@ -116,7 +116,12 @@
             </p>
           </div>
           <div class="card panel">
-            <form class="membership-form">
+            <form
+              class="membership-form"
+              action="mailto:info@aim-org.net"
+              method="post"
+              enctype="text/plain"
+            >
               <div class="grid-2">
                 <label>
                   First Name
@@ -129,15 +134,20 @@
               </div>
               <label>
                 Personal Number (YYYYMMddXXXX)
-                <input type="text" name="personalNumber" placeholder="198605054321" />
+                <input
+                  type="text"
+                  name="personalNumber"
+                  placeholder="198605054321"
+                  required
+                />
               </label>
               <label>
                 Address
-                <input type="text" name="address" placeholder="Street, City" />
+                <input type="text" name="address" placeholder="Street, City" required />
               </label>
               <label>
                 Phone Number (46XXXXXXXXX or 07XXXXXXXXX)
-                <input type="tel" name="phone" placeholder="+46..." required />
+                <input type="tel" name="phone" placeholder="+46 70 123 45 67" required />
               </label>
               <label>
                 Email
@@ -149,9 +159,14 @@
               </label>
               <label>
                 Occupation / Study Program
-                <input type="text" name="occupation" placeholder="Physician, Nurse, Student..." />
+                <input
+                  type="text"
+                  name="occupation"
+                  placeholder="Physician, Nurse, Student..."
+                  required
+                />
               </label>
-              <button class="button primary" type="button">Apply for membership</button>
+              <button class="button primary" type="submit">Apply for membership</button>
               <p class="form-note">
                 We'll review your application and get back to you via email.
               </p>
@@ -176,7 +191,11 @@
             </button>
           </div>
           <div class="card qr">
-            <div class="qr-box">QR</div>
+            <img
+              class="qr-image"
+              src="swish-qr.png"
+              alt="Swish QR code for membership and donation"
+            />
             <p>Medlemskap/Donation</p>
           </div>
         </div>
@@ -195,7 +214,15 @@
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
+              class="social-link"
             >
+              <span class="social-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img" focusable="false">
+                  <path
+                    d="M12 7.3a4.7 4.7 0 1 0 0 9.4 4.7 4.7 0 0 0 0-9.4Zm0 7.6a2.9 2.9 0 1 1 0-5.8 2.9 2.9 0 0 1 0 5.8ZM17.5 6.8a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0ZM20 7.9c-.1-1.4-.4-2.6-1.4-3.6-1-1-2.2-1.3-3.6-1.4C13.5 2.8 10.5 2.8 9 2.9c-1.4.1-2.6.4-3.6 1.4-1 1-1.3 2.2-1.4 3.6-.1 1.5-.1 4.5 0 6 .1 1.4.4 2.6 1.4 3.6 1 1 2.2 1.3 3.6 1.4 1.5.1 4.5.1 6 0 1.4-.1 2.6-.4 3.6-1.4 1-1 1.3-2.2 1.4-3.6.1-1.5.1-4.5 0-6Zm-2.2 7.3a3.7 3.7 0 0 1-2.1 2.1c-1.5.6-5.1.5-6.8.5s-5.3.1-6.8-.5a3.7 3.7 0 0 1-2.1-2.1c-.6-1.5-.5-5.1-.5-6.8s-.1-5.3.5-6.8A3.7 3.7 0 0 1 3.1 1.5C4.6.9 8.2 1 9.9 1s5.3-.1 6.8.5a3.7 3.7 0 0 1 2.1 2.1c.6 1.5.5 5.1.5 6.8s.1 5.3-.5 6.8Z"
+                  />
+                </svg>
+              </span>
               @Arameans_in_medicine
             </a>
             <a
@@ -203,10 +230,33 @@
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
+              class="social-link"
             >
+              <span class="social-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img" focusable="false">
+                  <path
+                    d="M13.5 9.1H16V6.1h-2.8c-2.8 0-4.6 1.8-4.6 4.6v2.4H6v3h2.6v7.8h3.2v-7.8H15l.5-3h-3.7v-2c0-.9.5-1.9 1.7-1.9Z"
+                  />
+                </svg>
+              </span>
               @Arameans_in_medicine
             </a>
-            <a href="#" aria-label="LinkedIn">@Arameans_in_medicine</a>
+            <a
+              href="https://www.linkedin.com/in/arameans-in-medicine-449b78270/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              class="social-link"
+            >
+              <span class="social-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" role="img" focusable="false">
+                  <path
+                    d="M4.8 7.4a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm-1.6 2.1h3.2v11.2H3.2V9.5Zm6.6 0H13v1.5h.1a3.6 3.6 0 0 1 3.3-1.8c3.5 0 4.2 2.3 4.2 5.2v6.4h-3.2v-5.6c0-1.3 0-3-1.9-3s-2.2 1.4-2.2 2.9v5.7H9.8V9.5Z"
+                  />
+                </svg>
+              </span>
+              @Arameans in medicine
+            </a>
           </div>
         </div>
       </section>
@@ -339,6 +389,32 @@
           <p>
             Let's work together for a great purpose!
           </p>
+        </div>
+      </section>
+
+      <section class="section partners" id="partners">
+        <div class="container">
+          <h2>Our Partners & Sponsors</h2>
+          <div class="partners-grid">
+            <div class="partner-card">
+              <img src="partners/kvc-logo.svg" alt="KVC logo" />
+            </div>
+            <div class="partner-card">
+              <img src="partners/egs-logo.svg" alt="EGS logo" />
+            </div>
+            <div class="partner-card">
+              <img src="partners/uvc-logo.svg" alt="UVC logo" />
+            </div>
+            <div class="partner-card">
+              <img src="partners/botkyrka-dental-logo.svg" alt="Botkyrka Dental logo" />
+            </div>
+            <div class="partner-card">
+              <img src="partners/wem-logo.svg" alt="WEM logo" />
+            </div>
+            <div class="partner-card">
+              <img src="partners/spp-logo.svg" alt="SPP logo" />
+            </div>
+          </div>
         </div>
       </section>
     </main>
