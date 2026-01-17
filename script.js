@@ -31,3 +31,63 @@ copyButtons.forEach((button) => {
     }
   });
 });
+
+const membershipForm = document.querySelector(".membership-form");
+const modal = document.querySelector("[data-modal]");
+const modalBackdrop = document.querySelector("[data-modal-backdrop]");
+const modalClose = document.querySelector("[data-modal-close]");
+const modalCancel = document.querySelector("[data-modal-cancel]");
+const modalConfirm = document.querySelector("[data-modal-confirm]");
+const termsCheckbox = document.querySelector("[data-terms-checkbox]");
+
+const openModal = () => {
+  if (!modal || !modalBackdrop || !modalConfirm || !termsCheckbox) {
+    return;
+  }
+  modal.classList.add("open");
+  modalBackdrop.classList.add("open");
+  modalConfirm.disabled = !termsCheckbox.checked;
+};
+
+const closeModal = () => {
+  if (!modal || !modalBackdrop || !termsCheckbox) {
+    return;
+  }
+  modal.classList.remove("open");
+  modalBackdrop.classList.remove("open");
+  termsCheckbox.checked = false;
+  if (modalConfirm) {
+    modalConfirm.disabled = true;
+  }
+};
+
+if (membershipForm) {
+  membershipForm.addEventListener("submit", (event) => {
+    if (!modal || !modalBackdrop || !termsCheckbox) {
+      return;
+    }
+    event.preventDefault();
+    openModal();
+  });
+}
+
+if (termsCheckbox && modalConfirm) {
+  termsCheckbox.addEventListener("change", () => {
+    modalConfirm.disabled = !termsCheckbox.checked;
+  });
+
+  modalConfirm.addEventListener("click", () => {
+    if (!termsCheckbox.checked || !membershipForm) {
+      return;
+    }
+    closeModal();
+    membershipForm.submit();
+  });
+}
+
+[modalClose, modalCancel, modalBackdrop].forEach((element) => {
+  if (!element) {
+    return;
+  }
+  element.addEventListener("click", closeModal);
+});

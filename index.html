@@ -162,6 +162,15 @@
                 <input type="checkbox" name="student" />
                 Are you a student?
               </label>
+              <label>
+                Occupation / Study Program
+                <input
+                  type="text"
+                  name="occupation"
+                  placeholder="Physician, Nurse, Student..."
+                  required
+                />
+              </label>
               <div class="inline-group">
                 <span>Have you paid the membership fee?</span>
                 <label class="inline">
@@ -173,15 +182,6 @@
                   No
                 </label>
               </div>
-              <label>
-                Occupation / Study Program
-                <input
-                  type="text"
-                  name="occupation"
-                  placeholder="Physician, Nurse, Student..."
-                  required
-                />
-              </label>
               <button class="button primary" type="submit">Apply for membership</button>
               <p class="form-note">
                 We'll review your application and get back to you via email.
@@ -437,9 +437,40 @@
 
     <footer class="site-footer">
       <div class="container">
+        <div class="footer-links">
+          <a class="footer-link" href="terms.html">Terms & Conditions</a>
+          <a class="footer-link" href="privacy.html">Privacy Policy</a>
+        </div>
         <p>© 2025 AIM – Arameans In Medicine. All rights reserved.</p>
       </div>
     </footer>
+
+    <div class="modal-backdrop" data-modal-backdrop></div>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="terms-title" data-modal>
+      <div class="modal-header">
+        <h3 id="terms-title">Terms & Conditions</h3>
+        <button class="modal-close" type="button" aria-label="Close" data-modal-close>
+          ✕
+        </button>
+      </div>
+      <p>
+        Please read our Terms & Conditions before finalizing your membership
+        application.
+      </p>
+      <a class="button ghost" href="terms.html" target="_blank" rel="noreferrer">
+        Read Terms & Conditions
+      </a>
+      <label class="inline modal-check">
+        <input type="checkbox" name="termsAccepted" data-terms-checkbox />
+        I have read and agree to the Terms & Conditions
+      </label>
+      <div class="modal-actions">
+        <button class="button ghost" type="button" data-modal-cancel>Cancel</button>
+        <button class="button primary" type="button" data-modal-confirm disabled>
+          Continue
+        </button>
+      </div>
+    </div>
 
     <script src="script.js"></script>
   </body>

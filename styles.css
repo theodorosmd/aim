@@ -355,15 +355,16 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
 }
 
-.inline {
+.membership-form label.inline {
   display: flex;
   align-items: center;
   gap: 10px;
   font-weight: 600;
   color: var(--ink);
+  white-space: nowrap;
 }
 
-.inline input {
+.membership-form label.inline input {
   margin: 0;
 }
 
@@ -511,6 +512,20 @@ h3 {
   font-size: 0.9rem;
 }
 
+.footer-link {
+  display: inline-flex;
+  font-weight: 600;
+  color: var(--primary-dark);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
 .partners-grid {
   margin-top: 28px;
   display: grid;
@@ -534,6 +549,77 @@ h3 {
   width: 100%;
   object-fit: contain;
   filter: saturate(0.9);
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.45);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  z-index: 100;
+}
+
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -48%);
+  width: min(520px, 92%);
+  background: var(--surface);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  z-index: 110;
+  display: grid;
+  gap: 16px;
+}
+
+.modal.open,
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal.open {
+  transform: translate(-50%, -50%);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.modal-close {
+  border: none;
+  background: #eef2ff;
+  color: var(--primary-dark);
+  border-radius: 10px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.modal-check {
+  background: #f8fafc;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
 }
 
 @media (max-width: 880px) {
