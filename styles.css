@@ -533,6 +533,40 @@ h3 {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
 
+.partners-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.partners-carousel {
+  margin-top: 28px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(220px, 1fr);
+  gap: 22px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 8px;
+  scroll-behavior: smooth;
+}
+
+.partners-carousel::-webkit-scrollbar {
+  height: 8px;
+}
+
+.partners-carousel::-webkit-scrollbar-thumb {
+  background: #d9deea;
+  border-radius: 999px;
+}
+
 .partner-card {
   background: #fff;
   border: 1px solid var(--border);
@@ -542,6 +576,7 @@ h3 {
   place-items: center;
   min-height: 110px;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  scroll-snap-align: start;
 }
 
 .partner-card img {

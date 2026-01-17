@@ -91,3 +91,28 @@ if (termsCheckbox && modalConfirm) {
   }
   element.addEventListener("click", closeModal);
 });
+
+const partnersCarousel = document.querySelector("[data-carousel]");
+const prevButton = document.querySelector("[data-carousel-prev]");
+const nextButton = document.querySelector("[data-carousel-next]");
+
+const scrollCarousel = (direction) => {
+  if (!partnersCarousel) {
+    return;
+  }
+  const card = partnersCarousel.querySelector(".partner-card");
+  const cardWidth = card ? card.offsetWidth : 240;
+  const gap = 22;
+  partnersCarousel.scrollBy({
+    left: direction * (cardWidth + gap),
+    behavior: "smooth",
+  });
+};
+
+if (prevButton) {
+  prevButton.addEventListener("click", () => scrollCarousel(-1));
+}
+
+if (nextButton) {
+  nextButton.addEventListener("click", () => scrollCarousel(1));
+}
