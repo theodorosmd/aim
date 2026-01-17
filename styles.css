@@ -471,8 +471,8 @@ h3 {
 }
 
 .logo-image {
-  width: 180px;
-  height: 180px;
+  width: 240px;
+  height: 240px;
   border-radius: 50%;
   border: 2px solid var(--border);
   object-fit: cover;
@@ -524,6 +524,20 @@ h3 {
   gap: 16px;
   margin-bottom: 8px;
   flex-wrap: wrap;
+}
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color: var(--ink);
+}
+
+.footer-contact a {
+  color: var(--primary-dark);
+  font-weight: 600;
 }
 
 .partners-grid {
