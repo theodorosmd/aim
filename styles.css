@@ -543,23 +543,16 @@ h3 {
 
 .partners-carousel {
   margin-top: 28px;
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(220px, 1fr);
+  overflow-x: hidden;
+  overflow-y: hidden;
+  padding-bottom: 12px;
+}
+
+.partners-track {
+  display: flex;
   gap: 22px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 8px;
-  scroll-behavior: smooth;
-}
-
-.partners-carousel::-webkit-scrollbar {
-  height: 8px;
-}
-
-.partners-carousel::-webkit-scrollbar-thumb {
-  background: #d9deea;
-  border-radius: 999px;
+  width: max-content;
+  will-change: transform;
 }
 
 .partner-card {
@@ -571,7 +564,7 @@ h3 {
   place-items: center;
   min-height: 110px;
   box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-  scroll-snap-align: start;
+  flex: 0 0 240px;
 }
 
 .partner-card img {
@@ -580,6 +573,7 @@ h3 {
   object-fit: contain;
   filter: saturate(0.9);
 }
+
 
 .modal-backdrop {
   position: fixed;
