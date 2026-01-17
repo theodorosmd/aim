@@ -359,6 +359,24 @@ h3 {
   display: flex;
   align-items: center;
   gap: 10px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.inline input {
+  margin: 0;
+}
+
+.inline-group {
+  display: grid;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.inline-group span {
+  color: var(--muted);
+  font-weight: 600;
 }
 
 .donate-grid {
