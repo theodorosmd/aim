@@ -133,7 +133,7 @@
                 </label>
               </div>
               <label>
-                Personal Number (YYYYMMddXXXX)
+                ID Number
                 <input
                   type="text"
                   name="personalNumber"
@@ -171,17 +171,10 @@
                   required
                 />
               </label>
-              <div class="inline-group">
-                <span>Have you paid the membership fee?</span>
-                <label class="inline">
-                  <input type="radio" name="paidFee" value="yes" required />
-                  Yes
-                </label>
-                <label class="inline">
-                  <input type="radio" name="paidFee" value="no" required />
-                  No
-                </label>
-              </div>
+              <label class="inline">
+                <input type="checkbox" name="paidFee" required />
+                Have you paid the membership fee?
+              </label>
               <button class="button primary" type="submit">Apply for membership</button>
               <p class="form-note">
                 We'll review your application and get back to you via email.
