@@ -400,10 +400,11 @@ h3 {
   display: grid;
   place-items: center;
   text-align: center;
+  align-content: start;
 }
 
 .qr-image {
-  width: 200px;
+  width: 160px;
   max-width: 100%;
   height: auto;
   border-radius: 14px;
