@@ -403,14 +403,16 @@ h3 {
 }
 
 .qr-image {
-  width: 140px;
-  height: 140px;
-  border-radius: 16px;
-  border: 2px solid var(--border);
+  width: 200px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  border: 1px solid var(--border);
   background: #fff;
+  padding: 6px;
   margin-bottom: 12px;
-  object-fit: cover;
-  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
+  object-fit: contain;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
 }
 
 .divider {
