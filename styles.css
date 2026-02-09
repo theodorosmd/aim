@@ -529,6 +529,16 @@ h3 {
   flex-wrap: wrap;
 }
 
+.footer-credit {
+  margin: 0 0 6px;
+  color: var(--muted);
+}
+
+.footer-credit a {
+  color: var(--primary-dark);
+  font-weight: 600;
+}
+
 .footer-contact {
   display: flex;
   flex-wrap: wrap;
