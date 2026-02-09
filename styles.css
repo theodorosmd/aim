@@ -553,6 +553,28 @@ h3 {
   font-weight: 600;
 }
 
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-social-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  background: #eff2f9;
+  border: 1px solid var(--border);
+}
+
+.footer-social-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: #1f2937;
+}
+
 .partners-grid {
   margin-top: 28px;
   display: grid;
